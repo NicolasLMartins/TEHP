@@ -13,7 +13,7 @@ namespace PropEOperacoesDateTime
             Console.WriteLine($"3) DayOfWeek: {d.DayOfWeek}");
             Console.WriteLine($"4) DayOfYear: {d.DayOfYear}");
             Console.WriteLine($"5) Hour: {d.Hour}");
-            Console.WriteLine($"6) Kind: {d.Kind}");
+            Console.WriteLine($"6) Kind: {d.Kind}"); /*CMD output: 6) Kind: Unspecified*/
             Console.WriteLine($"7) Millisecons: {d.Millisecond}");
             Console.WriteLine($"8) Minute: {d.Minute}");
             Console.WriteLine($"9) Month: {d.Month}");
