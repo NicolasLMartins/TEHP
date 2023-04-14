@@ -1,4 +1,6 @@
-﻿namespace Contribuintes.Entities
+﻿using System.Globalization;
+
+namespace Contribuintes.Entities
 {
     abstract class Pessoa
     {
@@ -12,7 +14,10 @@
             RendaAnual = rendaAnual;
         }
 
-
         public abstract double Imposto();
+        public override string ToString()
+        {
+            return $"{Nome}: $ {Imposto().ToString("F2", CultureInfo.InvariantCulture)}";
+        }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Contribuintes.Entities
+﻿namespace Contribuintes.Entities
 {
     class PessoaJuridica : Pessoa
     {
@@ -17,7 +11,7 @@ namespace Contribuintes.Entities
 
         public override double Imposto()
         {
-            if (NumeroFuncionarios >= 25)
+            if (NumeroFuncionarios > 10)
             {
                 return (RendaAnual * 0.14);
             }
@@ -25,6 +19,11 @@ namespace Contribuintes.Entities
             { 
                 return RendaAnual * 0.16;
             }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }
