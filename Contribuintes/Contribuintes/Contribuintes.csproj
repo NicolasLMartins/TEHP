@@ -46,6 +46,7 @@
     <Compile Include="Entities\Pessoa.cs" />
     <Compile Include="Entities\PessoaFisica.cs" />
     <Compile Include="Entities\PessoaJuridica.cs" />
+    <Compile Include="Entities\Enum\TipoPessoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

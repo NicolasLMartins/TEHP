@@ -20,10 +20,5 @@
                 return (RendaAnual * 0.15) - (GastosSaude * 0.5);
             }
         }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

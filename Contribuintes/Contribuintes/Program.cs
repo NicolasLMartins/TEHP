@@ -18,23 +18,25 @@ namespace Contribuintes
             {
                 Console.WriteLine($"Contribuinte #{i}: ");
                 Console.Write("Pessoa física ou jurídica (Física/Jurídica)? ");
-                string tipoPessoa = Console.ReadLine();
+                TipoPessoa tipoPessoa = (TipoPessoa)Enum.Parse(typeof(TipoPessoa), Console.ReadLine());
                 Console.Write("Nome: ");
                 string nome = Console.ReadLine();
                 Console.Write("Renda anual: ");
                 double rendaAnual = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                switch (tipoPessoa)
-                {
-                    case "Física":
-                        Console.Write("Gastos com saúde: ");
-                        double gastosSaude = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                        break;
+                int j = (int)tipoPessoa;
 
-                    case "Jurídica":
-                        Console.Write("Número de empregados: ");
-                        int numEmpre = int.Parse(Console.ReadLine());
-                        break;
+                if (j < 4)
+                {
+                    Console.Write("Gastos com saúde: ");
+                    double gastosSaude = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    lista.Add(new PessoaFisica(nome, rendaAnual, gastosSaude));
+                }
+                else if (j < 8)
+                {
+                    Console.Write("Número de empregados: ");
+                    int numFunc = int.Parse(Console.ReadLine());
+                    lista.Add(new PessoaJuridica(nome, rendaAnual, numFunc));
                 }
             }
 
