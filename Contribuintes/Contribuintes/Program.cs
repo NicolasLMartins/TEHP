@@ -44,7 +44,7 @@ namespace Contribuintes
             Console.WriteLine("Impostos pagos: ");
             foreach (Pessoa item in lista)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(item);
             }
         }
     }
