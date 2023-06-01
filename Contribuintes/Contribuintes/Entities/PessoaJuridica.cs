@@ -2,7 +2,7 @@ namespace Contribuintes.Entities
 {
     class PessoaJuridica : Pessoa
     {
-        private int NumeroFuncionarios { get; set; }
+        public int NumeroFuncionarios { get; set; }
 
         public PessoaJuridica(string nome, double rendaAnual, int numeroFuncionarios) : base(nome, rendaAnual)
         {
@@ -19,11 +19,6 @@ namespace Contribuintes.Entities
             { 
                 return RendaAnual * 0.16;
             }
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
         }
     }
 }

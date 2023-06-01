@@ -16,7 +16,7 @@ namespace Contribuintes
 
             for (int i = 1; i <= numContr; i++)
             {
-                Console.WriteLine($"Contribuinte #{i}: ");
+                Console.WriteLine($"\nContribuinte #{i}: ");
                 Console.Write("Pessoa física ou jurídica (Física/Jurídica)? ");
                 TipoPessoa tipoPessoa = (TipoPessoa)Enum.Parse(typeof(TipoPessoa), Console.ReadLine());
                 Console.Write("Nome: ");
@@ -42,10 +42,19 @@ namespace Contribuintes
 
             Console.WriteLine();
             Console.WriteLine("Impostos pagos: ");
+            double soma = 0;
             foreach (Pessoa item in lista)
             {
-                Console.WriteLine(item);
+                double imposto = item.Imposto();
+
+                Console.WriteLine($"{item.Nome}: $ {imposto.ToString("F2", CultureInfo.InvariantCulture)}");
+                soma += imposto;
             }
+
+            Console.WriteLine();
+            Console.WriteLine($"Impostos a pagar: $ {soma.ToString("F2", CultureInfo.InvariantCulture)}");
+
+            Console.ReadKey();
         }
     }
 }

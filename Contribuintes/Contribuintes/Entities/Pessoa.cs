@@ -15,9 +15,5 @@ namespace Contribuintes.Entities
         }
 
         public abstract double Imposto();
-        public override string ToString()
-        {
-            return $"{Nome}: $ {Imposto().ToString("F2", CultureInfo.InvariantCulture)}";
-        }
     }
 }
