@@ -1,4 +1,4 @@
-﻿namespace Contribuintes.Entities
+namespace Contribuintes.Entities
 {
     class PessoaJuridica : Pessoa
     {
