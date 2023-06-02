@@ -20,25 +20,32 @@ namespace EstoqueHerancaEPolimorfismo
                 Console.WriteLine($"\nInformações do produto #{i} ");
                 Console.Write("Comum, usado ou importado? (c/u/i) ");
                 TipoProduto tipoProd = (TipoProduto)Enum.Parse(typeof(TipoProduto), Console.ReadLine());
+                int tipoProdInt = (int)tipoProd;
+
+                while (tipoProdInt < 0 || tipoProdInt > 14)
+                {
+                    Console.Write("Valor inválido, tente novamente: ");
+                }
+                
                 Console.Write("Nome: ");
                 string nome = Console.ReadLine();
                 Console.Write("Preço: ");
                 double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                int tipoProdInt = (int)tipoProd;
+                
 
-                if (tipoProdInt < 4)
+                if (tipoProdInt < 5)
                 {
                     lista.Add(new Produto(nome, preco));
                 }
-                else if (tipoProdInt < 8)
+                else if (tipoProdInt < 10)
                 {
                     Console.Write("Data de fabricação: ");
                     DateTime dataDeFabricacao = DateTime.Parse(Console.ReadLine());
 
                     lista.Add(new ProdutoUsado(nome, preco, dataDeFabricacao));
 
-                } else if (tipoProdInt < 12)
+                } else if (tipoProdInt < 15)
                 {
                     Console.Write("Frete: ");
                     double frete = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
