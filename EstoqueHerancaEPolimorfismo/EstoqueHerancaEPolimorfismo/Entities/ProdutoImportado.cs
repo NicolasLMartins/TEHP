@@ -19,6 +19,7 @@ namespace EstoqueHerancaEPolimorfismo.Entities
         public override string Etiqueta()
         {
             return $"{Nome} $ {PrecoTotal().ToString("F2", CultureInfo.InvariantCulture)} (Frete: $ {Frete.ToString("F2", CultureInfo.InvariantCulture)})";
+
         }
     }
 }

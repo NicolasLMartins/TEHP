@@ -1,4 +1,5 @@
 ﻿using EstoqueHerancaEPolimorfismo.Entities;
+using EstoqueHerancaEPolimorfismo.Entities.Enum;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -16,33 +17,33 @@ namespace EstoqueHerancaEPolimorfismo
 
             for (int i = 1; i <= quantProd; i++)
             {
-                Console.WriteLine($"Informações do produto #{i} ");
+                Console.WriteLine($"\nInformações do produto #{i} ");
                 Console.Write("Comum, usado ou importado? (c/u/i) ");
-                char tipoProd = char.Parse(Console.ReadLine());
+                TipoProduto tipoProd = (TipoProduto)Enum.Parse(typeof(TipoProduto), Console.ReadLine());
                 Console.Write("Nome: ");
                 string nome = Console.ReadLine();
                 Console.Write("Preço: ");
                 double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                switch (tipoProd)
+                int tipoProdInt = (int)tipoProd;
+
+                if (tipoProdInt < 4)
                 {
-                    case 'u':
-                        Console.Write("Data de fabricação: ");
-                        DateTime dataDeFabricacao = DateTime.Parse(Console.ReadLine());
+                    lista.Add(new Produto(nome, preco));
+                }
+                else if (tipoProdInt < 8)
+                {
+                    Console.Write("Data de fabricação: ");
+                    DateTime dataDeFabricacao = DateTime.Parse(Console.ReadLine());
 
-                        lista.Add(new ProdutoUsado(nome, preco, dataDeFabricacao));
-                        break;
+                    lista.Add(new ProdutoUsado(nome, preco, dataDeFabricacao));
 
-                    case 'i':
-                        Console.Write("Frete: ");
-                        double frete = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                } else if (tipoProdInt < 12)
+                {
+                    Console.Write("Frete: ");
+                    double frete = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-                        lista.Add(new ProdutoImportado(nome, preco, frete));
-                        break;
-
-                    case 'c':
-                        lista.Add(new Produto(nome, preco));
-                        break;
+                    lista.Add(new ProdutoImportado(nome, preco, frete));
                 }
             }
 
